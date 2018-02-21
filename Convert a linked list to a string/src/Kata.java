@@ -2,12 +2,11 @@ import javax.xml.soap.Node;
 import java.util.List;
 import java.util.*;
 
-
 //Although this Kata is not part of an official Series, you may also want to try out Parse a linked list from a string if
 // you enjoyed this Kata.
 //
-//
-// Preloaded for you is a class Node used to construct linked lists in this Kata:
+//        Preloaded
+//        Preloaded for you is a class Node used to construct linked lists in this Kata:
 //
 //class Node {
 //    private int data;
@@ -42,8 +41,8 @@ import java.util.*;
 // language, you may want to try out an online course or read up on some code examples of OOP in your selected language up to
 // (but not necessarily including) Classical Inheritance.
 //
-//        Specifically, if you are attempting this Kata in PHP and haven't come across OOP, you may want to try out the first
-// 4 Kata in this Series.
+//        Specifically, if you are attempting this Kata in PHP and haven't come across OOP, you may want to try out the
+// first 4 Kata in this Series.
 //
 //        Task
 //        Create a function stringify which accepts an argument list/$list and returns a string representation of the list.
@@ -62,12 +61,13 @@ import java.util.*;
 //        ... its string representation would be:
 //
 //        "0 -> 1 -> 4 -> 9 -> 16 -> null"
-//        Note that null/NULL/None/nil/nullptr itself is also considered a valid linked list. In that case, its string
-// representation would simply be "null"/"NULL"/"None"/"nil"/"nullptr" (again, depending on the language).
+//        Note that null/NULL/None/nil/nullptr itself is also considered a valid linked list. In that case, its string representation
+// would simply be "null"/"NULL"/"None"/"nil"/"nullptr" (again, depending on the language).
 //
-//        For the simplicity of this Kata, you may assume that any Node in this Kata may only contain non-negative integer
-// values. For example, you will not encounter a Node whose data/$data/Data property is "Hello World".
-
+//        For the simplicity of this Kata, you may assume that any Node in this Kata may only contain non-negative integer values.
+// For example, you will not encounter a Node whose data/$data/Data property is "Hello World".
+//
+//        Enjoy, and don't forget to check out my other Kata Series :D
 
 public class Kata {
 
