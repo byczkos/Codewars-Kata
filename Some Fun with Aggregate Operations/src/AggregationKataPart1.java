@@ -70,42 +70,12 @@ import java.util.stream.Stream;
 //    }
 //}
 
-public class AggregationKata {
-
-    public static void main(String args[]) {
-        Student galina = new Student("Galina", 95, "Philology", Student.Gender.FEMALE);
-        Student anton = new Student("Anton", 90, "CS", Student.Gender.MALE);
-        Student jack = new Student("Jack", 82, "Philology", Student.Gender.MALE);
-        Student mike = new Student("Mike", 60, "Philology", Student.Gender.MALE);
-        Student jane = new Student("Jane", 65, "CS", Student.Gender.FEMALE);
-
-        List<Student> students = new ArrayList<>();
-        students.add(galina);
-        students.add(anton);
-        students.add(jack);
-        students.add(mike);
-        students.add(jane);
-
-        Stream<Student> students1 = students.stream();
-
-        System.out.println(getAverageGradeByDepartment(students1));
-    }
+public class AggregationKataPart1 {
 
     public static Map<String, Double> getAverageGradeByDepartment(Stream<Student> students) {
-        Map<String, Double> avareageGrade = new HashMap<>();
-
-        List<Student> studentList = students.collect(Collectors.toList());
-
-        double sumCs = studentList.stream().filter(s -> s.getDepartment() == "CS").collect(Collectors.summingDouble(d -> d.getGrade()));
-        long numberOfCsStudent = studentList.stream().filter(s -> s.getDepartment() == "CS").count();
-        double avareageCs = sumCs/numberOfCsStudent;
-        avareageGrade.put("CS",avareageCs);
-
-        double sumPhilology = studentList.stream().filter(s -> s.getDepartment() == "Philology").collect(Collectors.summingDouble(d -> d.getGrade()));
-        long numberOfPhilologyStudent = studentList.stream().filter(s -> s.getDepartment() == "Philology").count();
-        double avareagePhilology = sumPhilology/numberOfPhilologyStudent;
-        avareageGrade.put("Philology",avareagePhilology);
-        return avareageGrade;
+        return students
+                .collect(Collectors.groupingBy(Student::getDepartment,
+                        Collectors.averagingDouble(Student::getGrade)));
     }
 
 }
