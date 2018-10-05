@@ -1,0 +1,13 @@
+.out/*
+.idea/
+*.iml
+.production/*
+<<<<<<< HEAD
+/nbproject/*
+=======
+nbproject/private/
+build/
+nbbuild/
+dist/
+>>>>>>> bff26eb37203e37f4c6f362b180323a055ed9385
+*.xml
