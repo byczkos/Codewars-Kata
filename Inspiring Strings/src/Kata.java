@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 //    When given a string of space separated words, return the word with the longest length.
 //    If there are multiple words with the longest length, return the last instance of the word
@@ -31,12 +30,15 @@ public class Kata {
 
         }
         Integer maxValue = Collections.max(lengthsList);
-//        Map sorting
+        
+//      ==========  Map sorting - How o sort Map using a stream in Java 8  ==========
+
 //        Map<Integer, String> sortedMap = lengthsMap.entrySet()
 //                .stream()
 //                .sorted(Map.Entry.<Integer, String>comparingByValue())
 //                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 //        System.out.println(sortedMap);
+
         return map.get(maxValue);
     }
 }
