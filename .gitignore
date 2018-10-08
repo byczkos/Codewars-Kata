@@ -2,7 +2,7 @@
 .idea/
 *.iml
 .production/*
-nbproject/private/
+**/nbproject
 build/
 dist/
 *.xml
