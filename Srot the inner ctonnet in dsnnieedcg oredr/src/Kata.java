@@ -29,7 +29,6 @@ public class Kata {
         System.out.println(Kata.sortTheInnerContent("sort the inner content in descending order"));
     }
 
-    
 //    === alphabetic sorting with descending order without first and last letter ===
     public static String sortTheInnerContent(String words) {
         if (words.length() < 1) {
@@ -40,21 +39,23 @@ public class Kata {
         for (int i = 0; i < tableOfStrings.length; i++) {
             char[] tableOfChar = tableOfStrings[i].toCharArray();
             char[] firstAndLastLetter = {tableOfChar[0], tableOfChar[tableOfChar.length - 1]};
-            Character[] tableOfCharacters = new Character[tableOfChar.length - 2];
-            for (int j = 1; j < tableOfStrings[i].length() - 1; j++) {
-                tableOfCharacters[j - 1] = Character.valueOf(tableOfChar[j]);
-            }
-            Arrays.sort(tableOfCharacters, new Comparator<Character>() {
-                @Override
-                public int compare(Character o1, Character o2) {
-                    return o2.compareTo(o1);
+            if (tableOfChar.length > 2) {
+                Character[] tableOfCharacters = new Character[tableOfChar.length - 2];
+                for (int j = 1; j < tableOfStrings[i].length() - 1; j++) {
+                    tableOfCharacters[j - 1] = Character.valueOf(tableOfChar[j]);
                 }
-            });
-            tableOfChar[0] = firstAndLastLetter[0];
-            tableOfChar[tableOfChar.length - 1] = firstAndLastLetter[1];
-            
-            for (int n = 1; n < tableOfStrings[i].length() - 1; n++) {
-                tableOfChar[n] = tableOfCharacters[n - 1];
+                Arrays.sort(tableOfCharacters, new Comparator<Character>() {
+                    @Override
+                    public int compare(Character o1, Character o2) {
+                        return o2.compareTo(o1);
+                    }
+                });
+                tableOfChar[0] = firstAndLastLetter[0];
+                tableOfChar[tableOfChar.length - 1] = firstAndLastLetter[1];
+
+                for (int n = 1; n < tableOfStrings[i].length() - 1; n++) {
+                    tableOfChar[n] = tableOfCharacters[n - 1];
+                }
             }
             builder.append(tableOfChar);
             builder.append(" ");
