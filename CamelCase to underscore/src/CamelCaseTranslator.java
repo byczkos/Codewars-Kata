@@ -33,9 +33,6 @@
 
 //    Link to this Kata : https://www.codewars.com/kata/camelcase-to-underscore/train/java
 
-import java.util.Arrays;
-import java.util.List;
-
 public class CamelCaseTranslator {
 
     public static void main(String[] args) {
@@ -46,23 +43,17 @@ public class CamelCaseTranslator {
         System.out.println(CamelCaseTranslator.toUnderScore("grvX[]<>H3Yo"));
     }
 
-//    this resolution doesn't work good now, problem is with randomUnitNameTests and simpleUnitNameTests
     public static String toUnderScore(String name) {
-        Character[] specialSigns = {'[', ']', '>', '<', '_', '-'};
-        List<Character> list = Arrays.asList(specialSigns);
         StringBuilder builder = new StringBuilder();
         builder.append(name.charAt(0));
         for (int i = 1; i < name.length(); i++) {
-            if (Character.isUpperCase(name.charAt(i)) && !Character.isUpperCase(name.charAt(i - 1)) 
-                    && !list.contains(name.charAt(i - 1))) {
-                builder.append("_");
-            } else if (Character.isDigit(name.charAt(i)) && !Character.isDigit(name.charAt(i - 1)) 
-                    && !list.contains(name.charAt(i - 1))) {
-                builder.append("_");
-            } else if (list.contains(name.charAt(i)) && list.contains(name.charAt(i - 1))) {
+            char current = name.charAt(i);
+            char last = name.charAt(i - 1);
+            if ((Character.isUpperCase(current) || (Character.isDigit(current) && !Character.isDigit(last)))
+                    && last != '_'){
                 builder.append("_");
             }
-            builder.append(name.charAt(i));
+            builder.append(current);
         }
         return builder.toString();
     }
