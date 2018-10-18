@@ -32,7 +32,7 @@
 //    => 1 + 1
 //    => 2
 
-// URL: https://www.codewars.com/kata/sum-of-digits-slash-digital-root/train/java
+// URL: https://www.codewars.com/kata/sum-of-digits-slash-digital-root/train/java 
 
 public class DRoot {
     
