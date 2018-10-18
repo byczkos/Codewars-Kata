@@ -25,18 +25,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CircleSorted {
 
 //   === check the solution ===
     public static void main(String[] args) {
         CircleSorted circleSorted = new CircleSorted();
+        System.out.println(circleSorted.isCircleSorted(new int[]{5,7,43,987,-9,0}));
         System.out.println(circleSorted.isCircleSorted(new int[]{3,0,1,2}));
-        System.out.println(circleSorted.isCircleSorted(new int[]{1, 2, 5, 8, 0}));
         System.out.println(circleSorted.isCircleSorted(new int[]{8, 2, 3, 4, 7}));
+        System.out.println(circleSorted.isCircleSorted(new int[]{8, 2, 9, 4, 7}));
+        System.out.println(circleSorted.isCircleSorted(new int[]{8, 9, -1, 4, 7}));
     }
 
-    // something is wrong with trueTest
+    // now this solution is good
     
     public boolean isCircleSorted(int[] a) {
         List<Integer> rotatedList = new ArrayList<>();
@@ -48,7 +53,8 @@ public class CircleSorted {
             rotatedList.add(a[i]);
             sortedArray[i] = a[i];
         }
-        Collections.rotate(rotatedList, a.length - builder.lastIndexOf(Collections.min(rotatedList).toString()));
+        OptionalInt min = IntStream.of(sortedArray).min();
+        Collections.rotate(rotatedList, a.length - IntStream.of(sortedArray).boxed().collect(Collectors.toList()).indexOf(min.getAsInt()));
         Arrays.sort(sortedArray);
         for (int i = 0; i < a.length; i++) {
             rotatedArray[i] = rotatedList.get(i);
