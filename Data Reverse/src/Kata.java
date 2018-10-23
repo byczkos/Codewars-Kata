@@ -22,13 +22,15 @@ public class Kata {
 //     === check the solution ===
     public static void main(String[] args) {
         DataReverse(new int[]{0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1});
+        DataReverse(new int[]{1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0});
     }
     
-//something is wrong with RandomTest
+// now everything is OK, the problem was in return int array. We can't change input array.
     
     public static int[] DataReverse(int[] data) {
         StringBuilder builder = new StringBuilder();
         List<String> stringList = new ArrayList<>();
+        int[] newData = new int[data.length];
         int j = 0;
         for (int i = 0; i < data.length; i++) {
             builder.append(data[i]);
@@ -45,15 +47,15 @@ public class Kata {
         }
         String[] reversedArray = builderToReverse.toString().split("");
         for (int i = 0; i < reversedArray.length; i++) {
-            data[i] = Integer.parseInt(reversedArray[i]);
+            newData[i] = Integer.parseInt(reversedArray[i]);
         }
 // === if you wanto to see result, please uncomment this code ===
 
-//        for (int i = 0; i < data.length; i++) {
-//            System.out.print(data[i]);
-//        }
-//        System.out.println("");
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i]);
+        }
+        System.out.println("");
 
-        return data;
+        return newData;
     }
 }
