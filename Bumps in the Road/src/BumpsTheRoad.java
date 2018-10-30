@@ -5,6 +5,9 @@
 //    Unfortunately for you, your drive is very bumpy! Given a string showing either flat road ("_") or
 //    bumps ("n"), work out if you make it home safely. 15 bumps or under, return "Woohoo!", over 15 bumps
 //    return "Car Dead".
+
+//    URL:  https://www.codewars.com/kata/bumps-in-the-road/discuss
+
 public class BumpsTheRoad {
 
 //    === check the solution ===
