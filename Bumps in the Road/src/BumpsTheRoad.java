@@ -20,11 +20,10 @@ public class BumpsTheRoad {
         System.out.println(bumps("_n___nn__n_n___"));
     }
 
-//    in my opinion solution works good, but random test is failed 
     public static String bumps(final String road) {
         int counter = 0;
         for (int i = 0; i < road.length(); i++) {
-            if (road.charAt(i) == 'n' || road.charAt(i) == '_') {
+            if (road.charAt(i) == 'n') {
                 counter++;
             }
         }
