@@ -7,6 +7,8 @@
 //    Calculator.getTotalArea()
 //    Define the different shapes: Square, Rectangle, Circle and Triangle
 
+//    URL: https://www.codewars.com/kata/tdd-area-calculations
+
 public class Calculator {
     
 //    If You want paste the code at "codewars.com" You have to copy all figure classes and paste in one file.  
