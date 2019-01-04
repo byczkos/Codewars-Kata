@@ -26,15 +26,15 @@
 public class Movie {
 
     public static int movie(int card, int ticket, double perc) {
-        int systemAPrice = ticket;
-        int systemBPrice = card;
+        int systemAPrice = 0;
+        double systemBPrice = card;
         int counter = 1;
         System.out.println(card  + " " + ticket + " " + perc);
-        while (systemAPrice <= systemBPrice) {
-            systemAPrice = ticket * counter;
+        while (systemAPrice <= Math.ceil(systemBPrice)) {
+            systemAPrice += ticket;
             systemBPrice += ticket * Math.pow(perc, counter);
             counter++;
         }
-        return counter + 1;
+        return --counter;
     }
 }
